@@ -52,7 +52,7 @@ time_table_create = """
 
                                 ) 
                         """
-artist_table_create = """ 
+artists_table_create = """ 
                         CREATE TABLE IF NOT EXISTS artists(
                                 artist_id varchar PRIMARY KEY,
                                 name varchar, 
