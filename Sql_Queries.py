@@ -120,5 +120,5 @@ time_table_insert    =  """
 
 
 
-drop_tables = [songplays_table_drop, users_table_drop, songs_table_drop, artists_table_drop, time_table_drop]
-create_tables = [songplays_table_create, users_table_create, songs_table_create, artists_table_create, time_table_create]
+drop_tables_queries = [songplays_table_drop, users_table_drop, songs_table_drop, artists_table_drop, time_table_drop]
+create_tables_queries = [songplays_table_create, users_table_create, songs_table_create, artists_table_create, time_table_create]
