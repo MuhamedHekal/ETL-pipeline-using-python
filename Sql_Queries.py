@@ -10,11 +10,11 @@ time_table_drop = 'DROP TABLE IF EXISTS time'
 songplays_table_create = """ 
                         CREATE TABLE IF NOT EXISTS songplays(
                                 songplay_id Serial PRIMARY KEY, 
-                                start_time timestamp NOT NULL, 
-                                user_id int NOT NULL, 
+                                start_time timestamp , 
+                                user_id int, 
                                 level varchar,
-                                song_id varchar NOT NULL, 
-                                artist_id varchar NOT NULL, 
+                                song_id varchar , 
+                                artist_id varchar, 
                                 session_id int,
                                 location varchar , 
                                 user_agent varchar
@@ -69,7 +69,7 @@ songplays_table_insert = """
                             start_time, 
                             user_id, 
                             level ,
-                            song_id varchar, 
+                            song_id , 
                             artist_id , 
                             session_id,
                             location, 
@@ -118,6 +118,14 @@ time_table_insert    =  """
                             ON CONFLICT DO NOTHING;
                         """
 
+songs_select = """
+                 SELECT s.song_id, a.artist_id  
+                 FROM songs s INNER JOIN artists a 
+                 ON s.artist_id = a.artist_id
+                 WHERE s.title    =%s  
+                 AND   s.duration = %s
+                 AND   a.name     = %s
+               """
 
 
 drop_tables_queries = [songplays_table_drop, users_table_drop, songs_table_drop, artists_table_drop, time_table_drop]
